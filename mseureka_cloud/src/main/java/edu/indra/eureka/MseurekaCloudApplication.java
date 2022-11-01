@@ -16,10 +16,9 @@ public class MseurekaCloudApplication {
 	 * 2 Add JAXB Glassfish
 	 * 3 Anotamos el main con @EnableEurekaServer
 	 * 4 Configurar las properties porque va a ser un servidor
-	 * 5 sobre el microservicio alumnos le añadimos las dependencias del eureka client
+	 * 5 Sobre el microservicio alumnos le añadimos las dependencias del eureka client
 	 * 6 Anotamos en el main de msalumnos @EnableEurekaClient
 	 * 7 gateway
-	 * 
 	 */
 
 	public static void main(String[] args) {
