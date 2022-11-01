@@ -20,8 +20,7 @@ public class JSONPController {
 	ObjectMapper om;//es para serializar a JSON el alumno
 	
 	@GetMapping("/jsonp/alumno") //GET http://localhost:8081/jsonp/alumno?callback=mifuncion
-	public void testJsonp (HttpServletRequest request, HttpServletResponse response,
-			@RequestParam (value = "callback", required = true) String callback) throws IOException
+	public void testJsonp (HttpServletRequest request, HttpServletResponse response, @RequestParam (value = "callback", required = true) String callback) throws IOException
 	{
 		ObjectNode objectNode = om.createObjectNode();//nuestro alumno
 		objectNode.put("id" , 15);
@@ -38,5 +37,4 @@ public class JSONPController {
 		response.setContentType("application/javascript;charset=UTF-8");
 		response.getWriter().print(cuerpo_respuesta);
 	}
-
 }

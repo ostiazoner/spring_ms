@@ -17,7 +17,6 @@ import edu.indra.comun.entity.Curso;
 
 public interface AlumnoService {
 	
-	//ABMC ALUMNOS
 	public Iterable<Alumno> findAll ();
 	
 	public Iterable<Alumno> findAll (Pageable pag);
