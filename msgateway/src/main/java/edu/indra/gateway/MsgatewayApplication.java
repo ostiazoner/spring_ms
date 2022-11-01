@@ -10,12 +10,9 @@ public class MsgatewayApplication {
 
 	
 	/**
-	 * 
 	 * 1- Creamos proyecto spring starter, añadimos dependencias de eureka client y gateway
-	 * 2- clase main con @EnableEurekaClient
+	 * 2- Clase main con @EnableEurekaClient
 	 * 3- Configurar properties, canviar extension a .yml
-	 * 
-	 * 
 	 */
 	
 	
