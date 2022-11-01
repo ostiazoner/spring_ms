@@ -11,8 +11,8 @@ import edu.indra.comun.entity.Curso;
 
 @FeignClient(name = "mscursos")
 public interface CursoFeignClient {
-
 	//TODOS los metodos del curso controller o los que queremos
+	
 	@GetMapping("/curso/obtenerCursoAlumno/{idalumno}") // GET http://localhost:8081/curso/obtenerCursoAlumno/5
 	public Optional<Curso> obtenerCursoAlumno(@PathVariable Long idalumno);
 	

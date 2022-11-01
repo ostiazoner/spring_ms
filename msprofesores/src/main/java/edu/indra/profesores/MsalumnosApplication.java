@@ -9,8 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EntityScan("edu.indra.comun") //Con esta anotacion, le ayudo a encontrar al entidad Alumno que la hemos movido a otro paquete.
-@EnableFeignClients //Activamos FEIGN
+@EntityScan("edu.indra.comun") //Con esta anotacion, le ayudo a encontrar al entidad Profesor que la hemos movido a otro paquete.
+//@EnableFeignClients //Activamos FEIGN
 //@ComponentScan Obligatorio usar si los componentes (servicios, repo o controller estan fuera del paquete raiz)
 public class MsalumnosApplication {
 
