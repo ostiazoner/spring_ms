@@ -1,6 +1,10 @@
 package edu.indra.profesores.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,14 +18,23 @@ public class ProfesoresController {
 	
 	ProfesorService profesorService;
 	
+	@GetMapping("/listarProfesores")
 	public ResponseEntity<?> listarProfesores() {
-		return null;
+		Iterable<Profesor> profesores =  profesorService.getProfesores();
 		
+		ResponseEntity<?> response = ResponseEntity.ok(profesores);
+		return response;
 	}
 	
-	public ResponseEntity<?> obtenerProfesorPorId(Long idProfesor) {
-		return null;
+	@GetMapping("/listarProfesores/{idProfesor}")
+	public ResponseEntity<?> obtenerProfesorPorId(@PathVariable Long idProfesor) {
+		ArrayList<Long> ids = new ArrayList<>();
+		ids.add(idProfesor);
 		
+		Iterable<Profesor> profesores =  profesorService.getProfesorByIds(ids);
+		
+		ResponseEntity<?> response = ResponseEntity.ok(profesores);
+		return response;		
 	}
 	
 	public ResponseEntity<?> obtenerProfesorPorNombre(String nombreProfesor) {
