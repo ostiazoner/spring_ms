@@ -1,6 +1,7 @@
 package edu.indra.profesores.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,25 +83,33 @@ public class ProfesoresController {
 	}
 	
 	public ResponseEntity<?> eliminarProfesor(Profesor profesorNuevo) {
-		return null;
+		ArrayList<Long> ids = new ArrayList<>();
+		ids.add(profesorNuevo.getId());
 		
+		profesorService.deleteProfesorById(ids);
+		
+		return ResponseEntity.ok().build();
 	}
 	
 	public ResponseEntity<?> eliminarProfesorPorId(Long idProfesor) {
-		return null;
+		ArrayList<Long> ids = new ArrayList<>();
+		ids.add(idProfesor);
 		
+		profesorService.deleteProfesorById(ids);
+		
+		return ResponseEntity.ok().build();
 	}
 	
-	public ResponseEntity<?> asignarCursosProfesor(Iterable<Curso> cursos, Long idProfesor) {
-		return null;
+	public ResponseEntity<?> asignarCursosProfesor(List<Curso> cursos, Long idProfesor) {
+		profesorService.asignarCursosProfesor(cursos, idProfesor);
 		
+		return ResponseEntity.ok().build();
 	}
 	
-	public ResponseEntity<?> eliminarCursosProfesor(Iterable<Curso> cursos, Long idProfesor) {
-		return null;
+	public ResponseEntity<?> eliminarCursosProfesor(List<Curso> cursos, Long idProfesor) {
+			profesorService.eliminarCursosProfesor(cursos, idProfesor);
 		
+		return ResponseEntity.ok().build();	
 	}
-	
-	
 
 }

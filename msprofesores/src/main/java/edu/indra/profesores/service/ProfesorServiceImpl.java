@@ -1,5 +1,6 @@
 package edu.indra.profesores.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -53,6 +54,18 @@ public class ProfesorServiceImpl implements ProfesorService{
 	@Transactional(readOnly = true)
 	public Iterable<Curso> obtenerCursosProfesor(Long idPorfesor) {
 		return profesorRespository.ObtenerCursosProfesor(idPorfesor);
+	}
+
+	@Transactional
+	public void asignarCursosProfesor(List<Curso> cursos, Long idProfesor) {
+		Optional<Profesor> profesor = profesorRespository.findById(idProfesor);
+		profesor.get().setCursos(cursos);
+	}
+
+	@Transactional
+	public void eliminarCursosProfesor(List<Curso> cursos, Long idProfesor) {
+		Optional<Profesor> profesor = profesorRespository.findById(idProfesor);
+		cursos.forEach(curso -> (profesor.get()).eliminarCurso(curso));
 	}
 	
 }

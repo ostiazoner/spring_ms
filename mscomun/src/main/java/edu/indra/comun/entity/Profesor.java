@@ -101,7 +101,11 @@ public class Profesor {
 	}
 
 	public void setCursos(List<Curso> cursos) {
-		this.cursos = cursos;
+		this.cursos.addAll(cursos);
+	}
+	
+	public void eliminarCurso (Curso cu) {
+		this.cursos.remove(cu);
 	}
 
 	public String getEmail() {
