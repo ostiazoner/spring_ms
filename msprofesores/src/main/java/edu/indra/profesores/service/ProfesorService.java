@@ -2,6 +2,7 @@ package edu.indra.profesores.service;
 
 import java.util.Optional;
 
+import edu.indra.comun.entity.Curso;
 import edu.indra.comun.entity.Profesor;
 
 public interface ProfesorService {
@@ -15,4 +16,6 @@ public interface ProfesorService {
 	public void insertarProfesores(Iterable<Profesor> profesores);
 	
 	public Optional<Profesor> actualizarProfesor (Profesor profesor);
+	
+	public Iterable<Curso> obtenerCursosProfesor(Long idPorfesor);
 }

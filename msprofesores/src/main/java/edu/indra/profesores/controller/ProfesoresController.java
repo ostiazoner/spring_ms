@@ -1,8 +1,10 @@
 package edu.indra.profesores.controller;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,27 +44,27 @@ public class ProfesoresController {
 	public ResponseEntity<?> obtenerProfesorPorNombre(String nombreProfesor) {
 		//TODO REPOSITORY CONSULTA, SERVICE, SERVICE_IMPL
 		return null;
-		
 	}
 	
 	public ResponseEntity<?> obtenerCursosProfesor(Profesor profesor) {
-		return null;
+		Iterable<Curso> cursos = profesorService.obtenerCursosProfesor(profesor.getId());
+		ResponseEntity<?> response = ResponseEntity.ok(cursos);
 		
+		return response;
 	}
 	
 	public ResponseEntity<?> obtenerCursosProfesorPorId(Long idProfesor) {
-		return null;
+		Iterable<Curso> cursos = profesorService.obtenerCursosProfesor(idProfesor);
+		ResponseEntity<?> response = ResponseEntity.ok(cursos);
 		
+		return response;
 	}
 	
 	public ResponseEntity<?> modificarProfesor(Profesor profesorNuevo) {
-		return null;
+		Optional<Profesor> optional = profesorService.actualizarProfesor(profesorNuevo);
+		ResponseEntity<?> response = ResponseEntity.ok(optional);
 		
-	}
-	
-	public ResponseEntity<?> modificarProfesorPorId(Long idProfesor) {
-		return null;
-		
+		return response;
 	}
 	
 	public ResponseEntity<?> modificarCvProfesor(Long idProfesor) {
@@ -71,8 +73,12 @@ public class ProfesoresController {
 	}
 	
 	public ResponseEntity<?> añadirProfesor(Profesor profesorNuevo) {
-		return null;
+		ArrayList<Profesor> profesores = new ArrayList<>();
+		profesores.add(profesorNuevo);
 		
+		profesorService.insertarProfesores(profesores);
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(profesores);
 	}
 	
 	public ResponseEntity<?> eliminarProfesor(Profesor profesorNuevo) {
