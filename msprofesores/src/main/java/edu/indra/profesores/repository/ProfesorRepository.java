@@ -1,5 +1,7 @@
 package edu.indra.profesores.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -12,5 +14,8 @@ public interface ProfesorRepository extends CrudRepository<Profesor, Long>{
 	
 	@Query(value = "select * from cursos where id in (select cursos_id from profesores_cursos where profesor_id = ?1)", nativeQuery = true)
 	public Iterable<Curso> ObtenerCursosProfesor(Long idProfesor);
+	
+	@Query(value = "select * from profesores where nombre like %?1%)", nativeQuery = true)
+	public Optional<Profesor> ObtenerProfesorPrNombre(String nombreProfesor);
 	
 }

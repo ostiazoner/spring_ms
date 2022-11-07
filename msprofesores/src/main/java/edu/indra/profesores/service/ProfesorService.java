@@ -13,6 +13,8 @@ public interface ProfesorService {
 	
 	public Iterable<Profesor> getProfesores();
 	
+	public Optional<Profesor> ObtenerProfesorPorNombre (String nombreProfesor);
+	
 	public void deleteProfesorById(Iterable<Long> id);
 	
 	public void insertarProfesores(Iterable<Profesor> profesores);

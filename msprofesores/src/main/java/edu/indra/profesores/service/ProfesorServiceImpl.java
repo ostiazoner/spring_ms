@@ -67,5 +67,12 @@ public class ProfesorServiceImpl implements ProfesorService{
 		Optional<Profesor> profesor = profesorRespository.findById(idProfesor);
 		cursos.forEach(curso -> (profesor.get()).eliminarCurso(curso));
 	}
+
+	@Transactional(readOnly = true)
+	public Optional<Profesor> ObtenerProfesorPorNombre(String nombreProfesor) {
+		return profesorRespository.ObtenerProfesorPrNombre(nombreProfesor);
+	}
+	
+	
 	
 }
